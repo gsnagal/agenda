@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="submit" method="POST"> {% csrf_token %} <!--Qunado o botão for apertado, ele leva para uma pagina /login/submit e vai fazer um post. E sempre que for fazer um post precisa colocar o csfr...-->
+        <div align="center"> <!--Deixa centralizado-->
+            <label>Usuário:</label>
+            <input type="text" name="username">
+            <label>Senha:</label>
+            <input type="password" name="password">
+            <button type="submit">Entrar</button> <!--Quando o botao é do tipo submit, quando ele é precionado, ele vai submeter-->
+        </div>
+    </form>
+    {% for message in messages %}
+        <div align="center">
+            <strong>Erro! </strong>{{message}}
+        </div>
+    {% endfor %}
+</body>
+</html>
